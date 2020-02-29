@@ -6,9 +6,11 @@ const int echoPin = 10;
 long duration;
 int distance;
 void setup() {
-pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-Serial.begin(9600); // Starts the serial communication
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  Serial.begin(9600); // Starts the serial communication
 }
 void loop() {
 // Clears the trigPin
@@ -25,4 +27,12 @@ distance= duration*0.034/2;
 // Prints the distance on the Serial Monitor
 Serial.print("Distance: ");
 Serial.println(distance);
+
+if(distance>10){
+  digitalWrite(3,HIGH);
+  digitalWrite(4,HIGH);
+  }else if(distance>4){
+  digitalWrite(3,HIGH);
+  digitalWrite(4,LOW);
+  } 
 }
